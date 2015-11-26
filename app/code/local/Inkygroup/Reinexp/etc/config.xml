@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Inkygroup_Reinexp>
+            <version>1.0.0</version>
+        </Inkygroup_Reinexp>
+    </modules>
+
+
+    <frontend>
+        <layout>
+            <updates>
+                <inkygroup_reinexp>
+                    <label>Inkygroup Layout</label>
+                    <file>local.xml</file>
+                </inkygroup_reinexp>
+            </updates>
+        </layout>
+    </frontend>
+
+    <global>
+
+            <blocks>
+                <inkygroup_reinexp>
+                    <class>Inkygroup_Reinexp_Block</class>
+                </inkygroup_reinexp>
+            </blocks>
+
+    </global>
+
+
+</config>
