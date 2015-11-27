@@ -6,13 +6,12 @@
         </Inkygroup_Reinexp>
     </modules>
 
-
     <frontend>
         <layout>
             <updates>
                 <inkygroup_reinexp>
                     <label>Inkygroup Layout</label>
-                    <file>local.xml</file>
+                    <file>inkygroup_reinexp.xml</file>
                 </inkygroup_reinexp>
             </updates>
         </layout>
@@ -20,13 +19,60 @@
 
     <global>
 
-            <blocks>
-                <inkygroup_reinexp>
-                    <class>Inkygroup_Reinexp_Block</class>
-                </inkygroup_reinexp>
-            </blocks>
+        <helpers>
+            <inkygroup_reinexp>
+                <class>Inkygroup_Reinexp_Helper</class>
+            </inkygroup_reinexp>
+        </helpers>
+
+        <blocks>
+            <inkygroup_reinexp>
+                <class>Inkygroup_Reinexp_Block</class>
+            </inkygroup_reinexp>
+        </blocks>
+
+        <models>
+            <inkyslider>
+                <class>Inkygroup_Reinexp_Model</class>
+                <resourceModel>inkyslider_resource</resourceModel>
+            </inkyslider>
+
+            <inkyslider_resource>
+                <class>Inkygroup_Reinexp_Model_Resource</class>
+                <entities>
+                    <slider>
+                        <table>inky_slider_items</table>
+                    </slider>
+                </entities>
+            </inkyslider_resource>
+
+        </models>
+
+        <resources>
+            <inkyslider_setup>
+                <setup>
+                    <module>Inkygroup_Reinexp</module>
+                </setup>
+            </inkyslider_setup>
+        </resources>
 
     </global>
 
+    <admin>
+        <routers>
+            <inkyslider>
+                <use>admin</use>
+                <args>
+                    <module>Inkygroup_Reinexp</module>
+                    <frontName>inkyslider</frontName>
+                </args>
+               <!-- <args>
+                    <module>
+                        <inkygroup_reinexp before="Mage_Adminhtml">Inkygroup_Reinexp_Adminhtml</inkygroup_reinexp>
+                    </module>
+                </args>-->
+            </inkyslider>
+        </routers>
+    </admin>
 
 </config>
