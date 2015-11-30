@@ -5,8 +5,8 @@
  * Date: 29.11.2015
  * Time: 21:45
  */
-class Inkygroup_Reinexp_Model_Carriers_Inkycargo extends Mage_Shipping_Model_Carrier_Abstract
-    implements Mage_Shipping_Model_Carrier_Interface {
+class Inkygroup_Reinexp_Model_Inkycargo extends Mage_Shipping_Model_Carrier_Abstract implements Mage_Shipping_Model_Carrier_Interface
+{
 
     protected $_code = 'inkygroup_reinexp';
 
@@ -17,11 +17,9 @@ class Inkygroup_Reinexp_Model_Carriers_Inkycargo extends Mage_Shipping_Model_Car
             return false;
         }
 
-
-        $handling = Mage::getStoreConfig('carriers/'.$this->_code.'/handling');
         $result = Mage::getModel('shipping/rate_result');
         $show = true;
-        if($show){ // This if condition is just to demonstrate how to return success and error in shipping methods
+        if($show){
 
             $method = Mage::getModel('shipping/rate_result_method');
             $method->setCarrier($this->_code);
@@ -43,6 +41,20 @@ class Inkygroup_Reinexp_Model_Carriers_Inkycargo extends Mage_Shipping_Model_Car
     }
     public function getAllowedMethods()
     {
-        return array('inkycargo'=>$this->getConfigData('name'));
+        return array('inkygroup_reinexp'=>$this->getConfigData('name'));
+    }
+
+    protected function _getDefaultRate()
+    {
+        $rate = Mage::getModel('shipping/rate_result_method');
+
+        $rate->setCarrier($this->_code);
+        $rate->setCarrierTitle($this->getConfigData('title'));
+        $rate->setMethod($this->_code);
+        $rate->setMethodTitle($this->getConfigData('name'));
+        $rate->setPrice($this->getConfigData('price'));
+        $rate->setCost(0);
+
+        return $rate;
     }
 }

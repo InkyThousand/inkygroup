@@ -1,32 +1,32 @@
 <?php
 $methods = array(
   array(
-      'name'=>'cube',
+      'name'=>'Renault',
       'alt'=>'Renault',
-      'imagefile'=>'001.jpg',
+      'imagefile'=>'1.jpg',
       'status'=>'1'
   ),
   array(
-      'name'=>'cubeRandom',
+      'name'=>'Maserati',
       'alt'=>'Maserati',
-      'imagefile'=>'002.jpg',
+      'imagefile'=>'2.jpg',
       'status'=>'1'
   ),
   array(
-      'name'=>'block',
+      'name'=>'Nissan',
       'alt'=>'Nissan',
-      'imagefile'=>'003.jpg',
+      'imagefile'=>'3.jpg',
       'status'=>'1'
   ),
   array(
-      'name'=>'cubeStop',
+      'name'=>'Aston Martin',
       'alt'=>'Aston Martin',
-      'imagefile'=>'004.jpg',
-      'status'=>'1'
+      'imagefile'=>'4.jpg',
+      'status'=>'0'
   )
 );
 foreach ($methods as $method) {
-    Mage::getModel('inkyslider/slider')
+    Mage::getModel('inkygroup_reinexp/slider')
         ->setData($method)
         ->save();
 }
