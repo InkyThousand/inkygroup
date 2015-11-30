@@ -13,5 +13,19 @@ class Inkygroup_Reinexp_Model_Slider extends Mage_Core_Model_Abstract
         parent::_construct();
         $this->_init('inkyslider/slider');
     }
+    protected function _afterDelete()
+    {
+        $helper = Mage::helper('inkygroup_reinexp');
+        @unlink($helper->getImagePath($this->getId()));
+        return parent::_afterDelete();
+    }
 
+    public function getImageUrl()
+    {
+        $helper = Mage::helper('inkygroup_reinexp');
+        if ($this->getId() && file_exists($helper->getImagePath($this->getId()))) {
+            return $helper->getImageUrl($this->getId());
+        }
+        return null;
+    }
 }

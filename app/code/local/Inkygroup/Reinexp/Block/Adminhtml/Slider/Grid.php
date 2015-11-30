@@ -51,4 +51,23 @@ class Inkygroup_Reinexp_Block_Adminhtml_Slider_Grid extends Mage_Adminhtml_Block
         return parent::_prepareColumns();
     }
 
+    protected function _prepareMassaction()
+    {
+        $this->setMassactionIdField('slider_id');
+        $this->getMassactionBlock()->setFormFieldName('slide_check');
+
+        $this->getMassactionBlock()->addItem('delete', array(
+            'label' => $this->__('Delete'),
+            'url' => $this->getUrl('*/*/massDelete'),
+        ));
+        return $this;
+    }
+
+    public function getRowUrl($model)
+    {
+        return $this->getUrl('*/*/edit', array(
+            'slide_id' => $model->getId(),
+        ));
+    }
+
 }

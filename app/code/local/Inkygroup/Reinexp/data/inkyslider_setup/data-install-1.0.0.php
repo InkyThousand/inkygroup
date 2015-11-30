@@ -1,6 +1,4 @@
 <?php
-
-
 $methods = array(
   array(
       'name'=>'cube',

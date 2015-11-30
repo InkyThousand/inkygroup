@@ -29,6 +29,13 @@
             <inkygroup_reinexp>
                 <class>Inkygroup_Reinexp_Block</class>
             </inkygroup_reinexp>
+
+            <adminhtml>
+                <rewrite>
+                    <customer_grid>Inkygroup_Reinexp_Block_Adminhtml_Customer_Grid</customer_grid>
+                </rewrite>
+            </adminhtml>
+
         </blocks>
 
         <models>
@@ -52,10 +59,10 @@
             <inkyslider_setup>
                 <setup>
                     <module>Inkygroup_Reinexp</module>
+                    <class>Mage_Customer_Model_Entity_Setup</class>
                 </setup>
             </inkyslider_setup>
         </resources>
-
     </global>
 
     <admin>
@@ -73,6 +80,21 @@
                 </args>-->
             </inkyslider>
         </routers>
+
     </admin>
+
+    <default>
+        <carriers>
+            <reinexp>
+                <active>1</active>
+                <model>inkygroup_reinexp/carriers_inkycargo</model>
+                <title>Inky Post</title>
+                <name>Inky Shipping Method</name>
+                <price>5.00</price>
+                <sallowspecific>0</sallowspecific>
+                <specificerrmsg>This shipping method is currently unavailable.</specificerrmsg>
+            </reinexp>
+        </carriers>
+    </default>
 
 </config>
